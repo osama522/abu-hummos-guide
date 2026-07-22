@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === أكواد الـ SEO لمحركات البحث === -->
+    <meta name="description" content="دليل أطباء أبو حمص الشامل، ابحث عن أرقام وعناوين ومواعيد عمل الأطباء بسهولة.">
+    <meta name="keywords" content="دليل أبو حمص, اطباء أبو حمص, دكتور أبو حمص, دليل دكاترة أبو حمص, ارقام اطباء, محافظة البحيرة">
+    <meta name="author" content="Osama">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="دليل اطباء أبو حمص">
+    <meta property="og:description" content="أسهل طريقة للوصول لأرقام وعناوين الأطباء في أبو حمص.">
+    <!-- ========================================== -->
+
+    <title>دليل اطباء أبو حمص</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --primary: #0284c7; 
+            --primary-dark: #0369a1;
+            --primary-light: #e0f2fe;
+            --accent: #38bdf8;
+            --bg: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); 
+            --card: #ffffff; 
+            --text-main: #0f172a; 
+            --text-muted: #64748b; 
+            --border: #cbd5e1;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 20px 25px -5px rgba(2, 132, 199, 0.12), 0 10px 10px -5px rgba(2, 132, 199, 0.04);
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        
+        body { 
+            background: var(--bg); 
+            background-attachment: fixed;
+            color: var(--text-main); 
+            padding-bottom: 20px; 
+            line-height: 1.6; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+        
+        /* === الهيدر والقوائم === */
+        header { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-container { 
+            max-width: 1100px; 
+            margin: auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 20px; 
+        }
+        
+        .logo { 
+            font-size: 22px; 
+            font-weight: 800; 
+            color: var(--primary-dark); 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-tabs { display: flex; gap: 8px; background: rgba(241, 245, 249, 0.8); padding: 5px; border-radius: 12px; border: 1px solid var(--border); }
+        
+        .tab-btn { 
+            background: transparent; 
+            border: none; 
+            padding: 8px 18px; 
+            font-size: 14px; 
+            font-weight: 700; 
+            color: var(--text-muted); 
+            cursor: pointer; 
+            border-radius: 8px; 
+            transition: var(--transition);
+        }
+        
+        .tab-btn:hover { color: var(--primary); }
+        .tab-btn.active { background: var(--card); color: var(--primary); box-shadow: var(--shadow-sm); }
+        
+        /* === نبذة عن الموقع (Hero Section) === */
+        .hero-section {
+            max-width: 1100px;
+            margin: 30px auto 10px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero-box {
+            background: linear-gradient(135deg, rgba(224, 242, 254, 0.9) 0%, rgba(240, 253, 244, 0.9) 100%);
+            border: 1px solid #bae6fd;
+            padding: 25px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-box p {
+            color: var(--primary-dark);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* === أقسام العرض === */
+        main { max-width: 1100px; margin: 25px auto; padding: 0 20px; flex: 1; width: 100%; }
+        .view-section { display: none; animation: fadeIn 0.4s ease; }
+        .view-section.active { display: block; }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        /* === البحث والفلترة السريعة === */
+        .search-wrapper { 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(8px);
+            padding: 15px 20px; 
+            border-radius: 16px; 
+            box-shadow: var(--shadow-sm); 
+            margin-bottom: 20px; 
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .search-wrapper:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+            background: #fff;
+        }
+        
+        .search-wrapper input { 
+            width: 100%; 
+            padding: 10px; 
+            border: none; 
+            outline: none; 
+            font-size: 16px;
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        /* أزرار الفلترة السريعة بالتخصصات */
+        .filter-pills {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            scrollbar-width: thin;
+        }
+
+        .pill-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .pill-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+        }
+        
+        /* === تصميم الكروت الجمالي (خلفيات ملونة ديناميكية وتدرجات) === */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* تدرج الوان مختلف حسب ترتيب الكارت لإعطاء حيوية للشاشة */
+        .card:nth-child(even) {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+        }
+
+        /* خط تدرج لوني جمالي فوق الكارت */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: #38bdf8;
+            background: #ffffff;
+        }
+        
+        .card-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .card-item strong {
+            color: var(--text-muted);
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+        }
+        
+        .card-item span {
+            color: var(--text-main);
+            font-weight: 700;
+            flex: 1;
+        }
+        
+        /* === الفورم (التسجيل) === */
+        .form-card { 
+            background: rgba(255, 255, 255, 0.95); 
+            max-width: 750px; 
+            margin: auto; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: var(--shadow-sm); 
+            border: 1px solid var(--border);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 24px;
+        }
+        
+        .form-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            font-size: 14px;
+        }
+
+        .form-grid input {
+            width: 100%; 
+            padding: 14px 18px; 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            outline: none; 
+            font-size: 15px;
+            background-color: #f8fafc;
+            transition: var(--transition);
+        }
+
+        .form-grid input:focus {
+            border-color: var(--primary); 
+            box-shadow: 0 0 0 4px var(--primary-light); 
+            background-color: #fff;
+        }
+        
+        .submit-btn { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+            color: #fff; 
+            border: none; 
+            padding: 16px; 
+            border-radius: 12px; 
+            width: 100%; 
+            font-size: 16px;
+            font-weight: 800; 
+            cursor: pointer; 
+            margin-top: 25px; 
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+        }
+        
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35); }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+        
+        .alert { 
+            padding: 16px; 
+            border-radius: 12px; 
+            margin-bottom: 25px; 
+            display: none; 
+            text-align: center; 
+            font-weight: 700; 
+            border: 1px solid transparent;
+        }
+        
+        .alert-success { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+        .alert-info { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+        
+        .phone-link { color: var(--primary); text-decoration: none; font-weight: 700; direction: ltr; display: inline-block; }
+        .phone-link:hover { text-decoration: underline; color: var(--primary-dark); }
+        
+        .loading-spinner { 
+            text-align: center; 
+            padding: 50px; 
+            color: var(--text-muted); 
+            font-weight: 700; 
+            font-size: 17px; 
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px dashed var(--border);
+        }
+        
+        /* === الفوتر === */
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        
+        .visitor-counter {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) { 
+            .nav-container { flex-direction: column; gap: 15px; }
+            .nav-tabs { width: 100%; display: flex; }
+            .tab-btn { flex: 1; text-align: center; }
+            .form-card { padding: 25px 20px; }
+            .hero-box { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">📍 دليل أطباء أبو حمص</div>
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchView('search-view')">🔎 البحث</button>
+                <button class="tab-btn" onclick="switchView('register-view')">📝  إضافة دكتور </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- نبذة عن الموقع -->
+    <div class="hero-section">
+        <div class="hero-box">
+            <p>🌟       دليل أطباء أبو حمص هو منصه مجانية شاملة للوصول السريع للأطباء في مختلف التخصصات . هدفنا هو تسهيل البحث عن العيادات.</p>
+        </div>
+    </div>
+
+    <main>
+        <!-- قسم البحث -->
+        <section id="search-view" class="view-section active">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" oninput="filterData()" placeholder="🔎 ابحث هنا بالاسم، التخصص، أو العنوان...">
+            </div>
+            
+            <!-- أزرار الفلترة السريعة بالتخصصات -->
+            <div id="filterPills" class="filter-pills">
+                <button class="pill-btn active" onclick="filterBySpecialty('all', this)">الكل</button>
+            </div>
+            
+            <div id="loading" class="loading-spinner">✨ صل على النبي ﷺ ... جاري تحميل البيانات ⏳</div>
+            <div id="cardsContainer" class="cards-grid"></div>
+        </section>
+
+        <!-- قسم التسجيل -->
+        <section id="register-view" class="view-section">
+            <div class="form-card">
+                <h2 class="form-title">تسجيل بيانات جديدة</h2>
+                
+                <div id="savingAlert" class="alert alert-info">⏳ جاري حفظ البيانات يرجى الانتظار ...</div>
+                <div id="successAlert" class="alert alert-success">✅ تم حفظ البيانات بنجاح !</div>
+                
+                <form id="regForm" onsubmit="submitForm(event)">
+                    <input type="text" id="bot-trap" style="display:none;" tabindex="-1">
+                    
+                    <div class="form-grid">
+                        <div>
+                            <label>الاسم بالكامل:</label>
+                            <input type="text" id="name" required placeholder="مثال: د. أحمد محمود">
+                        </div>
+                        <div>
+                            <label>التخصص:</label>
+                            <input type="text" id="spec" required placeholder="مثال: أطفال / اسنان">
+                        </div>
+                        <div>
+                            <label>رقم العياده:</label>
+                            <input type="tel" id="phone" required placeholder="مثال: 010XXXXXXXX">
+                        </div>
+                        <div>
+                            <label>العنوان بالتفصيل:</label>
+                            <input type="text" id="address" required placeholder="مثال: أبو حمص، شارع كذا، بجوار كذا">
+                        </div>
+                        <div>
+                            <label>أيام ومواعيد العمل:</label>
+                            <input type="text" id="hours" required placeholder="مثال: السبت والثلاثاء من 5 إلى 9 مساءً">
+                        </div>
+                    </div>
+                    <button type="submit" id="btn" class="submit-btn">حفظ البيانات</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="visitor-counter">
+            👁️  الزيارات: <span id="visitCount">⏳</span>
+        </div>
+        <div>Designed & Developed by Osama</div>
+    </footer>
+
+    <script>
+        // ==========================================
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCL2DQ6Bo4qhwrS29nSC8AfWWDIwMURXKgXdEnk4SQhqkOpzrZRLnBTTWjFeUuCAxm-Q/exec"; 
+        // ==========================================
+
+        let dataList = [];
+        let selectedSpecialty = 'all';
+
+        window.onload = function() {
+            loadData();
+            trackVisits(); 
+        };
+
+        async function trackVisits() {
+            try {
+                let response = await fetch('https://api.counterapi.dev/v1/abuhummus-guide/visits/up');
+                let data = await response.json();
+                document.getElementById('visitCount').innerText = data.count;
+            } catch (error) {
+                document.getElementById('visitCount').innerText = "متاح قريباً";
+            }
+        }
+
+        function switchView(id) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            
+            document.getElementById('savingAlert').style.display = 'none';
+            document.getElementById('successAlert').style.display = 'none';
+
+            if(id === 'search-view') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                if(!dataList.length) loadData();
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            }
+        }
+
+        async function loadData() {
+            let loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = 'block';
+            document.getElementById('cardsContainer').innerHTML = '';
+
+            try {
+                let res = await fetch(SCRIPT_URL);
+                let rawData = await res.json();
+                
+                dataList = rawData.map(item => {
+                    if (Array.isArray(item)) {
+                        return {
+                            name: item[0] || '',
+                            specialty: item[1] || '',
+                            phone: item[2] || '',
+                            address: item[3] || '',
+                            workingHours: item[4] || ''
+                        };
+                    } else if (typeof item === 'object' && item !== null) {
+                        return {
+                            name: item.name || item.Field2 || '',
+                            specialty: item.specialty || item.Field3 || '',
+                            phone: item.phone || item.Field4 || '',
+                            address: item.address || item.Field5 || '',
+                            workingHours: item.workingHours || item.Field6 || ''
+                        };
+                    }
+                    return item;
+                }).reverse();
+
+                loadingDiv.style.display = 'none';
+                buildSpecialtyPills();
+                renderCards(dataList);
+            } catch(e) { 
+                loadingDiv.innerText = "حدث خطأ في الاتصال بالخادم. يرجى تحديث الصفحة."; 
+            }
+        }
+
+        // استخراج التخصصات ديناميكياً وعمل أزرار الفلترة
+        function buildSpecialtyPills() {
+            let pillsContainer = document.getElementById('filterPills');
+            let specialties = new Set();
+            
+            dataList.forEach(item => {
+                if(item.specialty) {
+                    // فصل التخصصات لو مكتوب اكتر من تخصص بفاصلة او /
+                    let specs = item.specialty.split(/[\/,]/);
+                    specs.forEach(s => {
+                        let trimmed = s.trim();
+                        if(trimmed) specialties.add(trimmed);
+                    });
+                }
+            });
+
+            let html = `<button class="pill-btn ${selectedSpecialty === 'all' ? 'active' : ''}" onclick="filterBySpecialty('all', this)">الكل</button>`;
+            specialties.forEach(spec => {
+                let isActive = selectedSpecialty === spec ? 'active' : '';
+                html += `<button class="pill-btn ${isActive}" onclick="filterBySpecialty('${spec}', this)">${spec}</button>`;
+            });
+            pillsContainer.innerHTML = html;
+        }
+
+        function filterBySpecialty(spec, btn) {
+            selectedSpecialty = spec;
+            document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterData();
+        }
+                  // هنا تحديد عدد الادخالات
+        function checkLimit() {
+            let history = JSON.parse(localStorage.getItem('subHistory') || '[]');
+            let now = new Date().getTime();
+            history = history.filter(time => (now - time) < 24 * 60 * 60 * 1000); 
+            localStorage.setItem('subHistory', JSON.stringify(history));
+            return history.length < 20;
+        }
+
+        async function submitForm(e) {
+            e.preventDefault();
+
+            const phoneVal = document.getElementById('phone').value.trim();
+            const nameVal = document.getElementById('name').value.trim();
+            
+            if(nameVal.length < 5) { alert("يرجى كتابة الاسم بشكل صحيح (أكثر من 5 حروف)."); return; }
+            if(!/^01[0125][0-9]{8}$/.test(phoneVal)) { alert("يرجى إدخال رقم هاتف صحيح (11 رقم يبدأ بـ 01)."); return; }
+            if(!checkLimit()) { alert("عذراً، لقد تجاوزت الحد الأقصى للتسجيل اليوم."); return; }
+
+            let btn = document.getElementById('btn');
+            let savingAlert = document.getElementById('savingAlert');
+            let successAlert = document.getElementById('successAlert');
+
+            btn.disabled = true; 
+            btn.innerText = "جاري رفع البيانات... ⏳";
+            savingAlert.style.display = 'block';
+            successAlert.style.display = 'none';
+
+            let entry = {
+                name: nameVal,
+                specialty: document.getElementById('spec').value,
+                phone: phoneVal,
+                address: document.getElementById('address').value,
+                workingHours: document.getElementById('hours').value,
+                honeypot: document.getElementById('bot-trap').value
+            };
+
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(entry), headers: {'Content-Type': 'text/plain'} });
+                
+                let history = JSON.parse(localStorage.getItem('subHistory') || '[]');
+                history.push(new Date().getTime());
+                localStorage.setItem('subHistory', JSON.stringify(history));
+
+                dataList.unshift(entry);
+                buildSpecialtyPills();
+                renderCards(dataList);
+
+                document.getElementById('regForm').reset();
+                
+                savingAlert.style.display = 'none';
+                successAlert.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                setTimeout(() => { 
+                    successAlert.style.display = 'none'; 
+                    switchView('search-view'); 
+                }, 2500);
+            } catch(err) { 
+                savingAlert.style.display = 'none';
+                alert("حدث خطأ بالاتصال، تأكد من الإنترنت وحاول مرة أخرى."); 
+            }
+            
+            btn.disabled = false; btn.innerText = "حفظ البيانات";
+        }
+
+        function clean(str) {
+            if(!str) return "";
+            return str.toString().replace(/[&<>'"]/g, t => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[t] || t));
+        }
+
+        function renderCards(list) {
+            let container = document.getElementById('cardsContainer');
+            if (!list.length) {
+                container.innerHTML = "<div style='grid-column: 1 / -1; text-align:center; padding: 40px; font-weight: bold; font-size: 18px; color: var(--text-muted); background: var(--card); border-radius: 16px; border: 1px dashed var(--border);'>لا توجد بيانات مسجلة حالياً أو لا يوجد نتائج للبحث</div>";
+                return;
+            }
+            
+            container.innerHTML = "";
+            list.forEach(item => {
+                container.innerHTML += `
+                    <div class="card">
+                        <div class="card-name">👤 ${clean(item.name)}</div>
+                        <div class="card-details">
+                            <div class="card-item">
+                                <strong>🔬 التخصص:</strong>
+                                <span>${clean(item.specialty)}</span>
+                            </div>
+                            <div class="card-item">
+                                <strong>📞 التليفون:</strong>
+                                <span><a href="tel:${clean(item.phone)}" class="phone-link">${clean(item.phone)}</a></span>
+                            </div>
+                            <div class="card-item">
+                                <strong>📍 العنوان:</strong>
+                                <span>${clean(item.address)}</span>
+                            </div>
+                            <div class="card-item">
+                                <strong>⏰ المواعيد:</strong>
+                                <span>${clean(item.workingHours)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function filterData() {
+            let search = document.getElementById('searchInput').value.toLowerCase().trim();
+            let filtered = dataList.filter(i => {
+                let name = (i.name || "").toLowerCase();
+                let specialty = (i.specialty || "").toLowerCase();
+                let address = (i.address || "").toLowerCase();
+
+                let matchesSearch = name.includes(search) || specialty.includes(search) || address.includes(search);
+                let matchesSpecialty = selectedSpecialty === 'all' || specialty.includes(selectedSpecialty.toLowerCase());
+
+                return matchesSearch && matchesSpecialty;
+            });
+            renderCards(filtered);
+        }
+    </script>
+</body>
+</html>
