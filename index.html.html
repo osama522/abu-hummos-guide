@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === أكواد الـ SEO لمحركات البحث (Google) === -->
+    <meta name="description" content="دليل أطباء أبو حمص الشامل، ابحث عن أرقام وعناوين ومواعيد عمل الدكاترة والمدرسين بسهولة، أو قم بإضافة بيانات جديدة للدليل.">
+    <meta name="keywords" content="دليل أبو حمص, اطباء أبو حمص, دكتور أبو حمص, دليل دكاترة أبو حمص, مدرسين أبو حمص, ارقام اطباء, محافظة البحيرة">
+    <meta name="author" content="Osama">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="دليل اطباء أبو حمص">
+    <meta property="og:description" content="أسهل طريقة للوصول لأرقام وعناوين الأطباء والمدرسين في أبو حمص.">
+    <!-- ========================================== -->
+
+    <title>دليل اطباء أبو حمص</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --primary: #0284c7; 
+            --primary-dark: #0369a1;
+            --primary-light: #e0f2fe;
+            --bg: #f4f7f6; 
+            --card: #ffffff; 
+            --text-main: #0f172a; 
+            --text-muted: #64748b; 
+            --border: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --transition: all 0.3s ease;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        
+        body { background-color: var(--bg); color: var(--text-main); padding-bottom: 20px; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* === الهيدر والقوائم === */
+        header { 
+            background: var(--card); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+        }
+        
+        .nav-container { 
+            max-width: 1100px; 
+            margin: auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 20px; 
+        }
+        
+        .logo { 
+            font-size: 22px; 
+            font-weight: 800; 
+            color: var(--primary-dark); 
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-tabs { display: flex; gap: 8px; background: var(--bg); padding: 5px; border-radius: 12px; }
+        
+        .tab-btn { 
+            background: transparent; 
+            border: none; 
+            padding: 10px 20px; 
+            font-size: 15px; 
+            font-weight: 700; 
+            color: var(--text-muted); 
+            cursor: pointer; 
+            border-radius: 8px; 
+            transition: var(--transition);
+        }
+        
+        .tab-btn:hover { color: var(--primary); }
+        .tab-btn.active { background: var(--card); color: var(--primary); box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        
+        /* === أقسام العرض === */
+        main { max-width: 1100px; margin: 40px auto; padding: 0 20px; flex: 1; width: 100%; }
+        .view-section { display: none; animation: slideUp 0.4s ease; }
+        .view-section.active { display: block; }
+        
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(15px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        /* === البحث والفلترة === */
+        .search-wrapper { 
+            background: var(--card); 
+            padding: 20px; 
+            border-radius: 16px; 
+            box-shadow: var(--shadow); 
+            margin-bottom: 25px; 
+            display: flex; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+        }
+        
+        .search-wrapper input, .search-wrapper select {
+            background-color: var(--bg);
+            border: 1px solid transparent;
+        }
+        
+        input, select { 
+            width: 100%; 
+            padding: 14px 18px; 
+            border: 1px solid var(--border); 
+            border-radius: 10px; 
+            outline: none; 
+            font-size: 15px;
+            transition: var(--transition);
+        }
+        
+        input:focus, select:focus { 
+            border-color: var(--primary); 
+            box-shadow: 0 0 0 4px var(--primary-light); 
+        }
+        
+        /* === تصميم الجدول === */
+        .sheet-container { 
+            background: var(--card); 
+            border-radius: 16px; 
+            box-shadow: var(--shadow); 
+            overflow: hidden; 
+        }
+        
+        .table-responsive { overflow-x: auto; }
+        
+        table { width: 100%; border-collapse: collapse; text-align: right; }
+        
+        th { 
+            background: #f8fafc; 
+            padding: 18px 15px; 
+            font-weight: 700; 
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border); 
+            white-space: nowrap; 
+        }
+        
+        td { 
+            padding: 16px 15px; 
+            border-bottom: 1px solid var(--border); 
+            color: var(--text-main);
+            vertical-align: middle;
+        }
+        
+        tr:hover td { background-color: #f8fafc; }
+        
+        .badge { 
+            display: inline-block;
+            padding: 6px 14px; 
+            border-radius: 50px; 
+            font-size: 13px; 
+            font-weight: 700; 
+            letter-spacing: 0.5px;
+        }
+        
+        /* === الفورم (التسجيل) === */
+        .form-card { 
+            background: var(--card); 
+            max-width: 750px; 
+            margin: auto; 
+            padding: 40px; 
+            border-radius: 16px; 
+            box-shadow: var(--shadow); 
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 24px;
+        }
+        
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full-width { grid-column: span 2; }
+        
+        label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            font-size: 14px;
+        }
+        
+        .submit-btn { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+            color: #fff; 
+            border: none; 
+            padding: 16px; 
+            border-radius: 10px; 
+            width: 100%; 
+            font-size: 16px;
+            font-weight: 800; 
+            cursor: pointer; 
+            margin-top: 25px; 
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+        
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(2, 132, 199, 0.4); }
+        .submit-btn:active { transform: translateY(0); }
+        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+        
+        /* رسائل التنبيه */
+        .alert { 
+            padding: 16px; 
+            border-radius: 10px; 
+            margin-bottom: 25px; 
+            display: none; 
+            text-align: center; 
+            font-weight: 700; 
+            border: 1px solid transparent;
+        }
+        
+        .alert-success { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+        .alert-info { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
+        
+        .phone-link { color: var(--primary); text-decoration: none; font-weight: 700; direction: ltr; display: inline-block; }
+        .phone-link:hover { text-decoration: underline; }
+        
+        .loading-spinner { text-align: center; padding: 40px; color: var(--text-muted); font-weight: 600; font-size: 16px; }
+        
+        /* === الفوتر === */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 1px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        .visitor-counter {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) { 
+            .form-grid { grid-template-columns: 1fr; } 
+            .full-width { grid-column: span 1; } 
+            .nav-container { flex-direction: column; gap: 15px; }
+            .nav-tabs { width: 100%; display: flex; }
+            .tab-btn { flex: 1; text-align: center; }
+            .form-card { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">📍 دليل اطباء أبو حمص</div>
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchView('search-view')">🔎 البحث </button>
+                <button class="tab-btn" onclick="switchView('register-view')">📝  إضافة بيانات دكتور</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- قسم البحث -->
+        <section id="search-view" class="view-section active">
+            <div class="search-wrapper">
+                <div style="flex: 2; min-width: 250px;">
+                    <input type="text" id="searchInput" oninput="filterData()" placeholder="بحث : اكتب الاسم، التخصص، أو العنوان هنا...">
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <select id="roleFilter" onchange="filterData()">
+                        <option value="all">الكل</option>
+                        <option value="دكتور">الأطباء فقط</option>
+                        <option value="مدرس">المدرسين فقط</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="sheet-container">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>🕒 التاريخ</th>
+                                <th>👤 الاسم</th>
+                                <th>💼 المهنة</th>
+                                <th>🔬 التخصص</th>
+                                <th>📞 التليفون</th>
+                                <th>📍 العنوان</th>
+                                <th>⏰ المواعيد</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+                <div id="loading" class="loading-spinner">جاري تحميل البيانات  ... ⏳</div>
+            </div>
+        </section>
+
+        <!-- قسم التسجيل -->
+        <section id="register-view" class="view-section">
+            <div class="form-card">
+                <h2 class="form-title">تسجيل بيانات جديدة </h2>
+                
+                <!-- رسالة جاري الحفظ -->
+                <div id="savingAlert" class="alert alert-info">⏳ جاري حفظ البيانات   يرجى الانتظار ...</div>
+                
+                <!-- رسالة النجاح -->
+                <div id="successAlert" class="alert alert-success">✅ تم حفظ البيانات بنجاح    !</div>
+                
+                <form id="regForm" onsubmit="submitForm(event)">
+                    <!-- مصيدة الروبوتات -->
+                    <input type="text" id="bot-trap" style="display:none;" tabindex="-1">
+                    
+                    <div class="form-grid">
+                        <div>
+                            <label>الاسم بالكامل:</label>
+                            <input type="text" id="name" required placeholder="مثال: د. أحمد محمود">
+                        </div>
+                        <div>
+                            <label>المهنة:</label>
+                            <select id="job" required>
+                                <option value="" selected disabled>اختر المهنة...</option>
+                                <option value="دكتور">دكتور</option>
+                                <option value="مدرس">مدرس</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>التخصص:</label>
+                            <input type="text" id="spec" required placeholder="مثال: أطفال / اسنان ">
+                        </div>
+                        <div>
+                            <label>رقم الهاتف:</label>
+                            <input type="tel" id="phone" required placeholder="مثال: 010XXXXXXXX">
+                        </div>
+                        <div class="full-width">
+                            <label>العنوان بالتفصيل:</label>
+                            <input type="text" id="address" required placeholder="مثال: أبو حمص، شارع كذا، بجوار كذا">
+                        </div>
+                        <div class="full-width">
+                            <label>أيام ومواعيد العمل:</label>
+                            <input type="text" id="hours" required placeholder="مثال: السبت والثلاثاء من 5 إلى 9 مساءً">
+                        </div>
+                    </div>
+                    <button type="submit" id="btn" class="submit-btn">حفظ البيانات  </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر المضاف -->
+    <footer>
+        <div class="visitor-counter">
+            👁️ إجمالي الزيارات: <span id="visitCount">⏳</span>
+        </div>
+        <div>by : osama</div>
+    </footer>
+
+    <script>
+        // ==========================================
+        // 🔴 رابط قاعدة البيانات (جوجل شيت)
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzCL2DQ6Bo4qhwrS29nSC8AfWWDIwMURXKgXdEnk4SQhqkOpzrZRLnBTTWjFeUuCAxm-Q/exec"; 
+        // ==========================================
+
+        let dataList = [];
+
+        window.onload = function() {
+            loadData();
+            trackVisits(); // تشغيل عداد الزوار عند فتح الموقع
+        };
+
+        // دالة عداد الزوار
+        async function trackVisits() {
+            try {
+                // استخدام API مجاني لزيادة وعرض عدد الزوار
+                let response = await fetch('https://api.counterapi.dev/v1/abuhummus-guide/visits/up');
+                let data = await response.json();
+                document.getElementById('visitCount').innerText = data.count;
+            } catch (error) {
+                document.getElementById('visitCount').innerText = "متاح قريباً";
+            }
+        }
+
+        // التبديل بين الصفحات
+        function switchView(id) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            
+            // إخفاء رسايل التنبيه عند التبديل
+            document.getElementById('savingAlert').style.display = 'none';
+            document.getElementById('successAlert').style.display = 'none';
+
+            if(id === 'search-view') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                if(!dataList.length) loadData();
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+            }
+        }
+
+        // جلب البيانات من الشيت
+        async function loadData() {
+            if(SCRIPT_URL.includes("YOUR_")) {
+                document.getElementById('loading').innerText = "خطأ في التحميل: مشكله بسيطه هتتصلح قريب   ."; return;
+            }
+            try {
+                let res = await fetch(SCRIPT_URL);
+                dataList = (await res.json()).reverse(); 
+                document.getElementById('loading').style.display = 'none';
+                renderTable(dataList);
+            } catch(e) { document.getElementById('loading').innerText = "حدث خطأ في الاتصال بالخادم."; }
+        }
+
+        // فحص عدد محاولات التسجيل
+        function checkLimit() {
+            let history = JSON.parse(localStorage.getItem('subHistory') || '[]');
+            let now = new Date().getTime();
+            history = history.filter(time => (now - time) < 24 * 60 * 60 * 1000); 
+            localStorage.setItem('subHistory', JSON.stringify(history));
+            return history.length < 3;
+        }
+
+        // إرسال البيانات
+        async function submitForm(e) {
+            e.preventDefault();
+
+            const phoneVal = document.getElementById('phone').value.trim();
+            const nameVal = document.getElementById('name').value.trim();
+            
+            if(nameVal.length < 5) { alert("يرجى كتابة الاسم بشكل صحيح (أكثر من 5 حروف)."); return; }
+            if(!/^01[0125][0-9]{8}$/.test(phoneVal)) { alert("يرجى إدخال رقم هاتف  صحيح (11 رقم يبدأ بـ 01)."); return; }
+            if(!checkLimit()) { alert("عذراً، لقد تجاوزت الحد الأقصى للتسجيل اليوم      ."); return; }
+
+            let btn = document.getElementById('btn');
+            let savingAlert = document.getElementById('savingAlert');
+            let successAlert = document.getElementById('successAlert');
+
+            // إظهار رسالة جاري الحفظ وتعديل الزر
+            btn.disabled = true; 
+            btn.innerText = "جاري رفع البيانات... ⏳";
+            savingAlert.style.display = 'block';
+            successAlert.style.display = 'none';
+
+            let now = new Date();
+            let entry = {
+                timestamp: now.toLocaleDateString('ar-EG') + ' ' + now.toLocaleTimeString('ar-EG', {hour: '2-digit', minute:'2-digit'}),
+                name: nameVal,
+                profession: document.getElementById('job').value,
+                specialty: document.getElementById('spec').value,
+                phone: phoneVal,
+                address: document.getElementById('address').value,
+                workingHours: document.getElementById('hours').value,
+                honeypot: document.getElementById('bot-trap').value
+            };
+
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(entry), headers: {'Content-Type': 'text/plain'} });
+                
+                let history = JSON.parse(localStorage.getItem('subHistory') || '[]');
+                history.push(new Date().getTime());
+                localStorage.setItem('subHistory', JSON.stringify(history));
+
+                dataList.unshift(entry);
+                renderTable(dataList);
+
+                document.getElementById('regForm').reset();
+                
+                // إخفاء رسالة التحميل وإظهار رسالة النجاح
+                savingAlert.style.display = 'none';
+                successAlert.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                setTimeout(() => { 
+                    successAlert.style.display = 'none'; 
+                    switchView('search-view'); 
+                }, 2500);
+            } catch(err) { 
+                savingAlert.style.display = 'none';
+                alert("حدث خطأ بالاتصال، تأكد من الإنترنت وحاول مرة أخرى."); 
+            }
+            
+            btn.disabled = false; btn.innerText = "حفظ البيانات  ";
+        }
+
+        function clean(str) {
+            if(!str) return "";
+            return str.toString().replace(/[&<>'"]/g, t => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[t] || t));
+        }
+
+        function renderTable(list) {
+            let tbody = document.getElementById('tableBody');
+            tbody.innerHTML = list.length ? "" : "<tr><td colspan='7' style='text-align:center; padding: 30px; font-weight: bold;'>لا توجد بيانات مسجلة حالياً</td></tr>";
+            
+            list.forEach(item => {
+                let badge = item.profession === 'دكتور' 
+                    ? 'background-color: #ecfdf5; color: #047857; border: 1px solid #a7f3d0;' 
+                    : 'background-color: #fffbeb; color: #b45309; border: 1px solid #fde68a;';
+                
+                tbody.innerHTML += `<tr>
+                    <td dir="ltr" style="font-size:13px; color: #64748b;">${clean(item.timestamp)}</td>
+                    <td style="font-weight: 700; color: #0f172a;">${clean(item.name)}</td>
+                    <td><span class="badge" style="${badge}">${clean(item.profession)}</span></td>
+                    <td>${clean(item.specialty)}</td>
+                    <td><a href="tel:${clean(item.phone)}" class="phone-link">${clean(item.phone)}</a></td>
+                    <td>${clean(item.address)}</td>
+                    <td>${clean(item.workingHours)}</td>
+                </tr>`;
+            });
+        }
+
+        function filterData() {
+            let search = document.getElementById('searchInput').value.toLowerCase();
+            let role = document.getElementById('roleFilter').value;
+            renderTable(dataList.filter(i => 
+                (role === 'all' || i.profession === role) &&
+                (i.name.includes(search) || i.specialty.includes(search) || i.address.includes(search))
+            ));
+        }
+    </script>
+</body>
+</html>
