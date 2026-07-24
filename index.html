@@ -408,7 +408,7 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo"> دليل أطباء أبو حمص</div>
+            <div class="logo"> دليل أطباء مركز أبو حمص</div>
             <div class="nav-tabs">
                 <button class="tab-btn active" onclick="switchView('search-view')"> البحث</button>
                 <button class="tab-btn" onclick="switchView('register-view')">  إضافة بيانات دكتور </button>
@@ -427,7 +427,7 @@
         <!-- قسم البحث -->
         <section id="search-view" class="view-section active">
             <div class="search-wrapper">
-                <input type="text" id="searchInput" oninput="filterData()" placeholder="🔎 ابحث هنا بالاسم، التخصص، أو العنوان...">
+                <input type="text" id="searchInput" oninput="filterData()" placeholder=" ابحث هنا بالاسم او التخصص أو العنوان...">
             </div>
             
             <!-- أزرار الفلترة السريعة بالتخصصات -->
@@ -677,7 +677,7 @@
                         <div class="card-name"> ${clean(item.name)}</div>
                         <div class="card-details">
                             <div class="card-item">
-                                <strong>🔬 التخصص:</strong>
+                                <strong> التخصص:</strong>
                                 <span>${clean(item.specialty)}</span>
                             </div>
                             <div class="card-item">
@@ -685,11 +685,11 @@
                                 <span><a href="tel:${clean(item.phone)}" class="phone-link">${clean(item.phone)}</a></span>
                             </div>
                             <div class="card-item">
-                                <strong>📍 العنوان:</strong>
+                                <strong> العنوان:</strong>
                                 <span>${clean(item.address)}</span>
                             </div>
                             <div class="card-item">
-                                <strong>⏰ المواعيد:</strong>
+                                <strong> المواعيد:</strong>
                                 <span>${clean(item.workingHours)}</span>
                             </div>
                         </div>
