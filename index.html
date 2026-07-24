@@ -14,6 +14,10 @@
     <!-- ========================================== -->
 
     <title>دليل اطباء أبو حمص</title>
+    
+   <link rel="icon" href="abuhummos.jpeg">
+   <meta property="og:image" content="https://osama522.github.io/abu-hummos-guide/abuhummos.jpeg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -404,10 +408,10 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo">📍 دليل أطباء أبو حمص</div>
+            <div class="logo"> دليل أطباء أبو حمص</div>
             <div class="nav-tabs">
-                <button class="tab-btn active" onclick="switchView('search-view')">🔎 البحث</button>
-                <button class="tab-btn" onclick="switchView('register-view')">📝  إضافة دكتور </button>
+                <button class="tab-btn active" onclick="switchView('search-view')"> البحث</button>
+                <button class="tab-btn" onclick="switchView('register-view')">  إضافة بيانات دكتور </button>
             </div>
         </div>
     </header>
@@ -415,7 +419,7 @@
     <!-- نبذة عن الموقع -->
     <div class="hero-section">
         <div class="hero-box">
-            <p>🌟       دليل أطباء أبو حمص هو منصه مجانية شاملة للوصول السريع للأطباء في مختلف التخصصات . هدفنا هو تسهيل البحث عن العيادات.</p>
+            <p>       دليل أطباء أبو حمص هو منصه مجانية شاملة للوصول السريع للأطباء في مختلف التخصصات . هدفنا هو تسهيل البحث عن العيادات.</p>
         </div>
     </div>
 
@@ -431,16 +435,16 @@
                 <button class="pill-btn active" onclick="filterBySpecialty('all', this)">الكل</button>
             </div>
             
-            <div id="loading" class="loading-spinner"> صل على النبي ﷺ ...    ⏳</div>
+            <div id="loading" class="loading-spinner">جاري تحميل البيانات - يرجى الانتظار ...    ⏳</div>
             <div id="cardsContainer" class="cards-grid"></div>
         </section>
 
         <!-- قسم التسجيل -->
         <section id="register-view" class="view-section">
             <div class="form-card">
-                <h2 class="form-title">تسجيل بيانات جديدة</h2>
+                <h2 class="form-title"> تسجيل بيانات جديدة</h2>
                 
-                <div id="savingAlert" class="alert alert-info">⏳ جاري حفظ البيانات يرجى الانتظار ...</div>
+                <div id="savingAlert" class="alert alert-info">⏳ جاري حفظ البيانات انتظر لحظات  ...</div>
                 <div id="successAlert" class="alert alert-success">✅ تم حفظ البيانات بنجاح !</div>
                 
                 <form id="regForm" onsubmit="submitForm(event)">
@@ -476,7 +480,7 @@
 
     <footer>
         <div class="visitor-counter">
-            👁️  الزيارات: <span id="visitCount">⏳</span>
+              الزيارات: <span id="visitCount">⏳</span>
         </div>
         <div>Designed by Osama </div>
     </footer>
@@ -670,7 +674,7 @@
             list.forEach(item => {
                 container.innerHTML += `
                     <div class="card">
-                        <div class="card-name">👤 ${clean(item.name)}</div>
+                        <div class="card-name"> ${clean(item.name)}</div>
                         <div class="card-details">
                             <div class="card-item">
                                 <strong>🔬 التخصص:</strong>
